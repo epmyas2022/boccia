@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll()
                 .stream()
                 .map(this.userConverter::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
