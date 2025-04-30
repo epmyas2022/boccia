@@ -1,8 +1,6 @@
 package com.boccia.api.model;
 
 import com.boccia.api.enums.TypeRole;
-import com.boccia.api.http.converter.Converter;
-import com.boccia.api.http.dto.UserDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -18,7 +18,6 @@ public class UserConverter implements Converter.Model<UserDto, User> {
     @Override
     public User toModel(UserDto dto) {
         User user = new User();
-        user.setId(dto.id());
         user.setName(dto.name());
         user.setEmail(dto.email());
         user.setPassword(dto.password());
