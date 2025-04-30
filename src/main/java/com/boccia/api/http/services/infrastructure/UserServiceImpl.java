@@ -33,7 +33,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto findByEmail(String email) {
-        throw new UnsupportedOperationException("Unimplemented method 'findByEmail'");
+        return userRepository.findAll()
+                .stream()
+                .filter(user -> user.getEmail().equals(email))
+                .map(this.userConverter::toDto)
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
@@ -43,12 +48,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto update(Long id, UserDto user) {
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        User userToUpdate = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        userToUpdate.setName(user.name());
+        userToUpdate.setEmail(user.email());
+        userToUpdate.setPassword(user.password());
+        userToUpdate.setRole(user.role());
+
+        return this.userConverter.toDto(userRepository.save(userToUpdate));
     }
 
     @Override
     public void delete(Long id) {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        User userToDelete = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        userRepository.delete(userToDelete);
     }
 
 }
