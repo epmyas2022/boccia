@@ -43,7 +43,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto create(UserDto user) {
-        throw new UnsupportedOperationException("Unimplemented method 'create'");
+        User userToCreate = this.userConverter.toModel(user);
+        User createdUser = userRepository.save(userToCreate);
+        return this.userConverter.toDto(createdUser);
     }
 
     @Override
