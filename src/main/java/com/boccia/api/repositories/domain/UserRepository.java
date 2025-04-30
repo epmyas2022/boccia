@@ -1,4 +1,4 @@
-package com.boccia.api.repositories;
+package com.boccia.api.repositories.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
