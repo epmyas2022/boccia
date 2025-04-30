@@ -1,4 +1,4 @@
-package com.boccia.api.http.services;
+package com.boccia.api.http.services.domain;
 
 import java.util.List;
 import com.boccia.api.http.dto.UserDto;

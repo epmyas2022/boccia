@@ -1,6 +1,8 @@
 package com.boccia.api.model;
 
 import com.boccia.api.enums.TypeRole;
+import com.boccia.api.http.converter.Converter;
+import com.boccia.api.http.dto.UserDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -12,15 +14,14 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Entity
 @Getter
 @Setter
 @Table(name = "users")
-public class User{
+public class User {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String email;
@@ -28,4 +29,5 @@ public class User{
 
     @Enumerated(EnumType.STRING)
     private TypeRole role;
+
 }
